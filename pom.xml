@@ -10,12 +10,25 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.resources.resourceEncoding>UTF-8</project.resources.resourceEncoding>
   </properties>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
   <scm>
     <connection>scm:git:https://github.com/softwarity/totp.git</connection>
     <developerConnection>scm:git:https://github.com/softwarity/totp.git</developerConnection>
     <url>https://github.com/softwarity/totp</url>
     <tag>HEAD</tag>
   </scm>
+  <developers>
+    <developer>
+      <id>hhfrancois</id>
+      <name>Francois Achache</name>
+      <email>francois.achache@softwarity.io</email>
+    </developer>
+  </developers>
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>

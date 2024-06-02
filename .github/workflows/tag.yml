@@ -1,4 +1,4 @@
-name: Publish ldap to registry
+name: Publish totp to registry
 run-name: ${{ github.actor }} run build on ${{ github.repository }}
 on:
   workflow_dispatch:

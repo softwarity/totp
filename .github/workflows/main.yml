@@ -1,0 +1,22 @@
+name: Build
+run-name: ${{ github.actor }} run build on ${{ github.repository }}
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+env:
+  REGISTRY: ghcr.io
+jobs:
+  build-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: liberica
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

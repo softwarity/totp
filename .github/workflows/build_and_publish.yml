@@ -1,3 +1,4 @@
+name: build_and_publish
 run-name: Build "${{ github.repository }}" and Publish to registries
 on:
   workflow_dispatch:

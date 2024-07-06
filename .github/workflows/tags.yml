@@ -1,5 +1,5 @@
-name: Build tag
-run-name: ${{ github.actor }} run build on ${{ github.repository }}
+name: tags
+run-name: Build tag ${{ github.repository }} ${{ github.ref }}
 on:
   workflow_dispatch:
   push:

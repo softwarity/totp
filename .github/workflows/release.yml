@@ -1,5 +1,5 @@
-name: Create Tag
-run-name: ${{ github.actor }} run build on ${{ github.repository }}
+name: release
+run-name: Release, create tag and push to ${{ github.repository }}
 on:
   workflow_dispatch:
 env:

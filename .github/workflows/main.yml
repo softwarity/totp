@@ -32,8 +32,8 @@ jobs:
           java-version: 17
           distribution: liberica
           server-id: ossrh
-          server-username: "GWLKf+Hz"
-          server-password: "OdK3hINf2c6swH732WLMvqi61lCGp8G4kDA7wXRLN/Xp"
+          server-username: ${{ secrets.OSSRH_USERNAME }}
+          server-password: ${{ secrets.OSSRH_TOKEN }}
       - name: Publish package
         run: mvn --batch-mode deploy
         # env:

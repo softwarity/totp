@@ -1,5 +1,4 @@
-name: Build and Publish to registries
-run-name: ${{ github.actor }} run build on ${{ github.repository }}
+name: Build "${{ github.repository }}" and Publish to registries
 on:
   workflow_dispatch:
   push:

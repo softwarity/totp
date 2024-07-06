@@ -1,0 +1,23 @@
+name: Build tag
+run-name: ${{ github.actor }} run build on ${{ github.repository }}
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+jobs:
+  check-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up java/maven       
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: liberica
+          gpg-passphrase: GPG_PASSPHRASE
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      - name: Create tag
+        run: mvn -Dmaven.test.skip=true package
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

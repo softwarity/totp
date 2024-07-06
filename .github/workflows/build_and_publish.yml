@@ -20,13 +20,13 @@ jobs:
         with:
           java-version: 17
           distribution: liberica
-          server-id: ossrh
           gpg-passphrase: GPG_PASSPHRASE
       - name: Publish package
         run: mvn clean --batch-mode deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
         env:
           REGISTRY: ghcr.io
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }} 
   publish-oss:
     runs-on: ubuntu-latest
     steps:

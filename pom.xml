@@ -3,7 +3,7 @@
   <groupId>io.softwarity</groupId>
   <artifactId>totp</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.5</version>
   <name>totp</name>
   <description>A Java reactive library for Time-based One-Time Passwords (TOTP)</description>
   <url>https://github.com/softwarity/totp</url>
@@ -22,7 +22,7 @@
     <connection>scm:git:https://github.com/softwarity/totp.git</connection>
     <developerConnection>scm:git:https://github.com/softwarity/totp.git</developerConnection>
     <url>https://github.com/softwarity/totp</url>
-    <tag>HEAD</tag>
+    <tag>totp-1.0.5</tag>
   </scm>
   <developers>
     <developer>

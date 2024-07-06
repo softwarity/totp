@@ -1,9 +1,11 @@
-name: Build
+name: Build and Publish totp to registry
 run-name: ${{ github.actor }} run build on ${{ github.repository }}
 on:
   workflow_dispatch:
   push:
     branches:
+      - '*'
+    tags:
       - '*'
 jobs:
   publish-ghcr:
@@ -18,7 +20,7 @@ jobs:
           java-version: 17
           distribution: liberica
       - name: Publish package
-        run: mvn --batch-mode deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/softwarity/totp
+        run: mvn clean --batch-mode deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/softwarity/totp
         env:
           REGISTRY: ghcr.io
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,7 +37,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn clean deploy -X
+        run: mvn clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

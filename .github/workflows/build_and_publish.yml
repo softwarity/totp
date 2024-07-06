@@ -27,14 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check if GPG is installed
-        run: |
-          if ! command -v gpg &> /dev/null
-          then
-            echo "GPG is not installed"
-            exit 1
-          else
-            gpg --version
-          fi
+        run: gpg --version
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v4
         with:

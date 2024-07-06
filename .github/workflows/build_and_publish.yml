@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 17
           distribution: liberica
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          gpg-passphrase: GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Setup git
         run: cat /home/runner/.m2/settings.xml
@@ -27,6 +27,7 @@ jobs:
         env:
           REGISTRY: ghcr.io
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
   publish-oss:
     runs-on: ubuntu-latest
     steps:
@@ -39,11 +40,12 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          gpg-passphrase: GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Publish package
         run: mvn clean -batch-mode deploy -Possrh
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           

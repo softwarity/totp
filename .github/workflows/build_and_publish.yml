@@ -1,4 +1,4 @@
-name: Build and Publish totp to registry
+name: Build and Publish to registries
 run-name: ${{ github.actor }} run build on ${{ github.repository }}
 on:
   workflow_dispatch:

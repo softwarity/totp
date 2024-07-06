@@ -22,8 +22,9 @@ jobs:
           distribution: liberica
           gpg-passphrase: GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-      - run: |
+      - name: Create tag
+        run: |
           mvn -Dmaven.test.skip=true --batch-mode release:prepare
           git push origin main --tags
-          env:
-            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

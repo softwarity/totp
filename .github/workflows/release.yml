@@ -20,11 +20,8 @@ jobs:
         with:
           java-version: 17
           distribution: liberica
-          gpg-passphrase: GPG_PASSPHRASE
-          gpg-private-key: GPG_PRIVATE_KEY
+          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       - run: |
           mvn -Dmaven.test.skip=true --batch-mode release:prepare
           git push origin main --tags
-          env:
-            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-            GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}

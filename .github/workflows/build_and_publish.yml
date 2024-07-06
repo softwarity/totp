@@ -20,6 +20,8 @@ jobs:
           distribution: liberica
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      - name: Setup git
+        run: cat /home/runner/.m2/settings.xml
       - name: Publish package
         run: mvn clean --batch-mode deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
         env:

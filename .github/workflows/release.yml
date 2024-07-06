@@ -19,5 +19,5 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email ""
       - run: |
-          mvn -Dmaven.test.skip=true release:prepare
+          mvn -Dmaven.test.skip=true --batch-mode release:prepare
           git push origin main --tags
